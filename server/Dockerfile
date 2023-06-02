@@ -1,6 +1,6 @@
 FROM golang:1.18-alpine as builder
 
-WORKDIR /www/wwwroot/my-gin-admin/my-gin-admin/server
+WORKDIR /my-gin-admin/server
 COPY . .
 
 RUN go env -w GO111MODULE=on \
@@ -16,9 +16,9 @@ LABEL MAINTAINER="867235241@qq.com"
 
 WORKDIR /go/src/github.com/flipped-aurora/gin-vue-admin/server
 
-COPY --from=0 /go/src/github.com/flipped-aurora/gin-vue-admin/server/server ./
-COPY --from=0 /go/src/github.com/flipped-aurora/gin-vue-admin/server/resource ./resource/
-COPY --from=0 /go/src/github.com/flipped-aurora/gin-vue-admin/server/config.docker.yaml ./
+COPY --from=0 /my-gin-admin/server ./
+COPY --from=0 /my-gin-admin/server ./resource/
+COPY --from=0 /my-gin-admin/server/config.docker.yaml ./
 
-EXPOSE 8888
+EXPOSE 8889
 ENTRYPOINT ./server -c config.docker.yaml
