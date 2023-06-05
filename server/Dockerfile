@@ -20,5 +20,5 @@ COPY --from=0 /my-gin-admin/server ./
 COPY --from=0 /my-gin-admin/server ./resource/
 COPY --from=0 /my-gin-admin/server/config.docker.yaml ./
 
-EXPOSE 8889
+EXPOSE 8888
 ENTRYPOINT ./server -c config.docker.yaml
