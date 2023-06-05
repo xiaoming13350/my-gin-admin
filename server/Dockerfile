@@ -14,7 +14,7 @@ FROM alpine:latest
 
 LABEL MAINTAINER="867235241@qq.com"
 
-WORKDIR /go/src/github.com/flipped-aurora/gin-vue-admin/server
+WORKDIR /my-gin-admin/server
 
 COPY --from=0 /my-gin-admin/server ./
 COPY --from=0 /my-gin-admin/server ./resource/
